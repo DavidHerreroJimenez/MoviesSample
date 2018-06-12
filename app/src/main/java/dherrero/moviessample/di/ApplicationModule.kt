@@ -4,8 +4,8 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dherrero.moviessample.MoviesApplication
-import dherrero.moviessample.data.MoviesRepository
-import dherrero.moviessample.data.MoviesRepositoryImpl
+import dherrero.moviessample.data.repository.MoviesRepository
+import dherrero.moviessample.data.repository.MoviesRepositoryImpl
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -28,7 +28,7 @@ class ApplicationModule(private val moviesApplication: MoviesApplication){
     fun provideRetrofit(): Retrofit {
 
         return Retrofit.Builder()
-                .baseUrl("https://api.github.com")
+                .baseUrl("https://api.themoviedb.org/4/list/1")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
@@ -36,7 +36,7 @@ class ApplicationModule(private val moviesApplication: MoviesApplication){
 
     @Provides
     @Singleton
-    fun provideMoviesRepository(moviesRepositoryImpl: MoviesRepositoryImpl): MoviesRepository{
+    fun provideMoviesRepository(moviesRepositoryImpl: MoviesRepositoryImpl): MoviesRepository {
 
         return moviesRepositoryImpl
     }
