@@ -1,5 +1,6 @@
 package dherrero.moviessample.ui.presenter
 
+import dherrero.moviessample.data.repository.MoviesRepositoryImpl
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,5 +12,11 @@ import javax.inject.Singleton
  */
 @Singleton
 class PresenterImpl @Inject constructor(): Presenter{
+
+    @Inject lateinit var moviesRepositoryImpl: MoviesRepositoryImpl
+
+    fun loadMovies(){
+        moviesRepositoryImpl.getMovies()
+    }
 
 }

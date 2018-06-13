@@ -9,4 +9,10 @@
         android:layout_height="wrap_content"
         android:text="lalalalalallalalalalla"/>
 
+    <Button
+        android:id="@+id/buttonPulsame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pulsame!"/>
+
 </LinearLayout>

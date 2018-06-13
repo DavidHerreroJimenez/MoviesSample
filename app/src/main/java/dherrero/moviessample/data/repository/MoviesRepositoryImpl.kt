@@ -2,6 +2,7 @@ package dherrero.moviessample.data.repository
 
 import dherrero.moviessample.data.errors.CustomError
 import dherrero.moviessample.data.errors.Either
+import dherrero.moviessample.data.rest.TheMoviedbApi
 import dherrero.moviessample.model.Movie
 import javax.inject.Inject
 
@@ -11,22 +12,22 @@ import javax.inject.Inject
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesRepositoryImpl @Inject constructor(private val moviesService: MoviesService): MoviesRepository {
+class MoviesRepositoryImpl @Inject constructor(private val theMoviedbApi: TheMoviedbApi): MoviesRepository {
 
     override fun getMovies(): Either<CustomError, List<Movie>> {
 
 
         return try{
-        val response = moviesService.execute()
+        val moviesResponse = theMoviedbApi.listMovies().execute()
 
-        when (response.isSuccessful) {
-            true -> Either.Right(transform((response.body() ?: default)))
+        when (moviesResponse.isSuccessful) {
+            true -> Either.Right(moviesResponse.body() ?: emptyList())
             false -> Either.Left(CustomError.ErrorServer())
-            return moviesService.
+
         }
         }catch(exception: Exception){
-                Either.Left<CustomError.ErrorServer>()
-            }}
+            Either.Left(CustomError.ErrorServer())
+            }
 
     }
 }

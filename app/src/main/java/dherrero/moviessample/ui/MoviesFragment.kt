@@ -1,8 +1,13 @@
 package dherrero.moviessample.ui
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import dherrero.moviessample.R.layout.movies_fragment
 import dherrero.moviessample.ui.base.BaseFragment
+import dherrero.moviessample.ui.presenter.PresenterImpl
+import kotlinx.android.synthetic.main.movies_fragment.*
+import javax.inject.Inject
 
 /**
  * Project name: MoviesSample
@@ -10,7 +15,12 @@ import dherrero.moviessample.ui.base.BaseFragment
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesFragment: BaseFragment(){
+class MoviesFragment: BaseFragment(), View.OnClickListener{
+
+
+    @Inject lateinit var presenterImpl: PresenterImpl
+
+
 
     override fun addFragmentLayout(): Int{
         return movies_fragment
@@ -26,5 +36,20 @@ class MoviesFragment: BaseFragment(){
         moviesFragment.arguments = args
 
         return moviesFragment
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        buttonPulsame.setOnClickListener(this)
+
+    }
+
+
+    override fun onClick(p0: View?) {
+        Toast.makeText(activity, "eeeeihhhh",Toast.LENGTH_LONG).show()
+
+        presenterImpl = PresenterImpl()
+        presenterImpl.loadMovies()
     }
 }
