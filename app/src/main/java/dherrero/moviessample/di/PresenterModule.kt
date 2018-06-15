@@ -16,10 +16,10 @@ import dherrero.moviessample.ui.presenter.PresenterImpl
  */
 @Module
 abstract class PresenterModule{
-
-    @Binds
-    @IntoMap
-    @ClassKey(PresenterImpl::class)
-    internal abstract fun bindPresenterImpl(presenterImpl: PresenterImpl): Presenter
+//
+//    @Binds
+//    @IntoMap
+//    @ClassKey(PresenterImpl::class)
+//    internal abstract fun bindPresenterImpl(presenterImpl: PresenterImpl): Presenter
 
 }

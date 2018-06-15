@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.di.ApplicationComponent
 
 /**
@@ -18,7 +19,7 @@ abstract class BaseFragment: Fragment(){
 
     val applicationComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
 
-        applicationComponent
+        (activity?.application as MoviesApplication).appComponent
     }
 
     abstract fun addFragmentLayout(): Int

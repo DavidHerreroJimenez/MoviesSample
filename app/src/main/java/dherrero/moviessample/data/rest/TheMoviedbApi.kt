@@ -1,6 +1,6 @@
 package dherrero.moviessample.data.rest
 
-import dherrero.moviessample.model.Movie
+import dherrero.moviessample.domain.model.Movie
 import retrofit2.Call
 import retrofit2.Retrofit
 import javax.inject.Inject

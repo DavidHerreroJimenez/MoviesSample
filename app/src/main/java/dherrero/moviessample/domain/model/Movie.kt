@@ -1,8 +1,8 @@
-package dherrero.moviessample.model
+package dherrero.moviessample.domain.model
 
 /**
  * Project name: MoviesSample
- * Package name: dherrero.moviessample.model
+ * Package name: dherrero.moviessample.domain.model
  *
  * Created by dherrero on 12/06/18.
  */

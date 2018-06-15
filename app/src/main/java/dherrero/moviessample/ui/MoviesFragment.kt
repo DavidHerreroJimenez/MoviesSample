@@ -38,6 +38,12 @@ class MoviesFragment: BaseFragment(), View.OnClickListener{
         return moviesFragment
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        applicationComponent.inject(this)
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -49,7 +55,8 @@ class MoviesFragment: BaseFragment(), View.OnClickListener{
     override fun onClick(p0: View?) {
         Toast.makeText(activity, "eeeeihhhh",Toast.LENGTH_LONG).show()
 
-        presenterImpl = PresenterImpl()
         presenterImpl.loadMovies()
+
+        Toast.makeText(activity, "uooooohhhh",Toast.LENGTH_LONG).show()
     }
 }
