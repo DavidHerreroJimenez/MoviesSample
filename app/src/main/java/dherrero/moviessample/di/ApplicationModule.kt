@@ -6,9 +6,10 @@ import dagger.Provides
 import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.data.repository.MoviesRepository
 import dherrero.moviessample.data.repository.MoviesRepositoryImpl
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import dherrero.moviessample.domain.model.Movies
+import dherrero.moviessample.domain.usecases.BaseUseCase
+import dherrero.moviessample.domain.usecases.None
+import dherrero.moviessample.domain.usecases.UseCase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -45,6 +46,44 @@ class ApplicationModule(private val moviesApplication: MoviesApplication){
     fun provideMoviesRepository(moviesRepositoryImpl: MoviesRepositoryImpl): MoviesRepository {
 
         return moviesRepositoryImpl
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideUseCase(useCase: UseCase<Movies>): BaseUseCase{
+        return useCase
+    }
+
+
+//    @Provides
+//    @Singleton
+//    fun provideMovies(movies: Movies): Movies{
+//
+//        return movies
+//    }
+
+    @Provides
+    @Singleton
+    fun provideMovies(): Movies{
+
+        return Movies()
+    }
+
+
+
+
+
+//    @Provides
+//    @Singleton
+//    fun provideNone(none: None): None{
+//        return none
+//    }
+
+    @Provides
+    @Singleton
+    fun provideNone(): None{
+        return None()
     }
 
 

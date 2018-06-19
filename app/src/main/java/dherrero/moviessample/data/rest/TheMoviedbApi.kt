@@ -1,6 +1,7 @@
 package dherrero.moviessample.data.rest
 
 import dherrero.moviessample.domain.model.Movie
+import dherrero.moviessample.domain.model.Movies
 import retrofit2.Call
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -18,7 +19,7 @@ class TheMoviedbApi @Inject constructor(retrofit: Retrofit):ThemoviedbService{
     private val movies by lazy { retrofit.create(ThemoviedbService::class.java) }
 
 
-    override fun listMovies(): Call<List<Movie>> {
+    override fun listMovies(): Call<Movies> {
         return movies.listMovies()
     }
 }

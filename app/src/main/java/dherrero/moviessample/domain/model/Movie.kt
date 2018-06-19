@@ -1,5 +1,7 @@
 package dherrero.moviessample.domain.model
 
+import javax.inject.Inject
+
 /**
  * Project name: MoviesSample
  * Package name: dherrero.moviessample.domain.model
