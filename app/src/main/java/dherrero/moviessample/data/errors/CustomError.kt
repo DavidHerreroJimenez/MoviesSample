@@ -8,4 +8,6 @@ package dherrero.moviessample.data.errors
  */
 sealed class CustomError{
     class ErrorServer: CustomError()
+
+    lateinit var errorMessage: String
 }

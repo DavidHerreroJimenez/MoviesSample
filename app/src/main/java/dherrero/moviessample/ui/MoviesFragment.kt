@@ -1,11 +1,14 @@
 package dherrero.moviessample.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import dherrero.moviessample.R.layout.movies_fragment
+import dherrero.moviessample.domain.model.Movie
 import dherrero.moviessample.ui.base.BaseFragment
 import dherrero.moviessample.ui.presenter.PresenterImpl
+import dherrero.moviessample.ui.view.MoviesFragmentViewCallBack
 import kotlinx.android.synthetic.main.movies_fragment.*
 import javax.inject.Inject
 
@@ -15,12 +18,12 @@ import javax.inject.Inject
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesFragment: BaseFragment(), View.OnClickListener{
+class MoviesFragment: BaseFragment(), View.OnClickListener, MoviesFragmentViewCallBack {
 
 
     @Inject lateinit var presenterImpl: PresenterImpl
 
-
+    lateinit var movies:  MutableList<Movie>
 
     override fun addFragmentLayout(): Int{
         return movies_fragment
@@ -53,10 +56,32 @@ class MoviesFragment: BaseFragment(), View.OnClickListener{
 
 
     override fun onClick(p0: View?) {
-        Toast.makeText(activity, "eeeeihhhh",Toast.LENGTH_LONG).show()
 
         presenterImpl.loadMovies()
 
-        Toast.makeText(activity, "uooooohhhh",Toast.LENGTH_LONG).show()
+
     }
+
+
+//    override fun getMovies(movies:  MutableList<Movie>){
+//
+//        this.movies = movies
+//    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        Toast.makeText(activity,movies.size, Toast.LENGTH_LONG).show()
+    }
+
+
+
+    override fun onCallBackMoviesFragment(newMovies: MutableList<Movie>){
+
+        this.movies = newMovies
+
+        Toast.makeText(activity, movies.size, Toast.LENGTH_LONG).show()
+
+    }
+
 }

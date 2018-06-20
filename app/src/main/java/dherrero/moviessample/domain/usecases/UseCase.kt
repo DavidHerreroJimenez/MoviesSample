@@ -4,8 +4,7 @@ package dherrero.moviessample.domain.usecases
 import dherrero.moviessample.data.errors.CustomError
 import dherrero.moviessample.data.errors.Either
 import dherrero.moviessample.data.repository.MoviesRepositoryImpl
-import dherrero.moviessample.domain.model.Movie
-import dherrero.moviessample.domain.model.Movies
+import dherrero.moviessample.data.rest.entities.ThemoviedbList1
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
@@ -23,7 +22,7 @@ import javax.inject.Singleton
  class UseCase<out Type> @Inject constructor(val moviesRepositoryImpl: MoviesRepositoryImpl): BaseUseCase where Type : Any {
 
 
-    fun execute(onResult: (Either<CustomError, Movies>) -> Unit) {
+    fun execute(onResult: (Either<CustomError, ThemoviedbList1>) -> Unit) {
         val job = async(CommonPool) { moviesRepositoryImpl.getMovies() }
         launch(UI) { onResult.invoke(job.await()) }
     }
