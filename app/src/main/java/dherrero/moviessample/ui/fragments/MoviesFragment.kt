@@ -1,7 +1,10 @@
 package dherrero.moviessample.ui.fragments
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Adapter
 import android.widget.Toast
 import dherrero.moviessample.R.layout.movies_fragment
 import dherrero.moviessample.domain.model.Movie
@@ -19,6 +22,10 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
 
 
     var movies: MutableList<Movie> = mutableListOf()
+
+    private lateinit var moviesList: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+
 
     override fun addFragmentLayout(): Int {
         return movies_fragment
@@ -42,12 +49,17 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
         applicationComponent.inject(this)
 
         presenter.viewFragment = this
+
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        buttonPulsame.setOnClickListener(this)
+//        buttonPulsame.setOnClickListener(this)
+
+        presenter.loadMovies()
+
+
 
     }
 
@@ -65,6 +77,15 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
         movies.clear()
 
         movies.addAll(newMovies)
+
+        viewAdapter = MoviesListAdapter(movies.toTypedArray())
+
+        moviesList = moviesListRecyclerView as RecyclerView
+        moviesList.setHasFixedSize(true)
+        moviesList.layoutManager = LinearLayoutManager(context)
+        moviesList.adapter = viewAdapter
+
+//        viewAdapter.notifyDataSetChanged()
 
         Toast.makeText(context, movies.size.toString(), Toast.LENGTH_LONG).show()
     }

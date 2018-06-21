@@ -2,4 +2,22 @@
     <string name="app_name">MoviesSample</string>
 
     <string name="btnAccept">Aceptar</string>
+
+
+    <!-- movies list adapter -->
+
+    <string name="originalTitle">Título original:</string>
+    <string name="title">Título:</string>
+    <string name="adult">Público adulto:</string>
+    <string name="backDropImage">BackDrop:</string>
+    <string name="mediaType">MediaType:</string>
+    <string name="language">Idioma:</string>
+    <string name="overview">Overview:</string>
+    <string name="popularity">Popularidad:</string>
+    <string name="posterImage">Poster:</string>
+    <string name="releaseDate">Fecha de publicación:</string>
+    <string name="video">Video:</string>
+    <string name="voteAverage">Vote Average:</string>
+    <string name="voteCount">Recuento de votos:</string>
+
 </resources>
