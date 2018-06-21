@@ -2,9 +2,10 @@ package dherrero.moviessample.ui.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.R.layout.baseactivity_layout
-import dherrero.moviessample.ui.presenter.Presenter
-import dherrero.moviessample.ui.presenter.PresenterImpl
+import dherrero.moviessample.di.ApplicationComponent
+import dherrero.moviessample.ui.presenter.MoviesPresenter
 import kotlinx.android.synthetic.main.baseactivity_layout.*
 import kotlinx.android.synthetic.main.basetoolbar.*
 import javax.inject.Inject
@@ -15,10 +16,16 @@ import javax.inject.Inject
  *
  * Created by dherrero on 12/06/18.
  */
-abstract class BaseActivity: AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var presenter: PresenterImpl
+    lateinit var presenter: MoviesPresenter
+
+
+    val applicationComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
+
+        (application as MoviesApplication).appComponent
+    }
 
     abstract fun addFragment(): BaseFragment
 
@@ -29,7 +36,6 @@ abstract class BaseActivity: AppCompatActivity(){
 
         supportFragmentManager.beginTransaction().add(baseactivity_container.id, addFragment()).commit()
     }
-
 
 
 }

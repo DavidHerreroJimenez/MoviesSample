@@ -19,7 +19,7 @@ import javax.inject.Singleton
  * Created by dherrero on 15/06/18.
  */
 @Singleton
- class UseCase<out Type> @Inject constructor(val moviesRepositoryImpl: MoviesRepositoryImpl): BaseUseCase where Type : Any {
+class MoviesUseCase<out Type> @Inject constructor(val moviesRepositoryImpl: MoviesRepositoryImpl) where Type : Any {
 
 
     fun execute(onResult: (Either<CustomError, ThemoviedbList1>) -> Unit) {
@@ -27,10 +27,4 @@ import javax.inject.Singleton
         launch(UI) { onResult.invoke(job.await()) }
     }
 }
-
-//    override
-//    fun execute(onResult: (Either<CustomError, List<Movie>>) -> Unit, params: Params) {
-////        val job = async(CommonPool) { moviesRepositoryImpl.run() }
-////        launch(UI) { onResult.invoke(job.await()) }
-//    }
 

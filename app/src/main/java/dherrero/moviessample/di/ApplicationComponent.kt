@@ -3,7 +3,7 @@ package dherrero.moviessample.di
 import dagger.Component
 import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.ui.MoviesActivity
-import dherrero.moviessample.ui.MoviesFragment
+import dherrero.moviessample.ui.fragments.MoviesFragment
 import javax.inject.Singleton
 
 /**

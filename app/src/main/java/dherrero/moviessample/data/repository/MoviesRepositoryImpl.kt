@@ -5,6 +5,7 @@ import dherrero.moviessample.data.errors.Either
 import dherrero.moviessample.data.rest.TheMoviedbApi
 import dherrero.moviessample.data.rest.entities.ThemoviedbList1
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Project name: MoviesSample
@@ -12,29 +13,35 @@ import javax.inject.Inject
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesRepositoryImpl @Inject constructor(private val theMoviedbApi: TheMoviedbApi): MoviesRepository{
-
-
-//    suspend fun run() = getMovies()
-
-
+@Singleton
+class MoviesRepositoryImpl @Inject constructor(private val theMoviedbApi: TheMoviedbApi) : MoviesRepository {
 
 
     override
     fun getMovies(): Either<CustomError, ThemoviedbList1> {
 
 
-        return try{
+        return try {
             val moviesResponse = theMoviedbApi.listMovies().execute()
+
+            val customError = CustomError.ErrorServer()
+
+            customError.errorMessage = moviesResponse.message().toString()
+
+            customError.urlError = moviesResponse.raw().request().url().toString()
 
             when (moviesResponse.isSuccessful) {
                 true -> Either.Right(moviesResponse.body() ?: ThemoviedbList1())
-                false -> Either.Left(CustomError.ErrorServer())
+                false -> Either.Left(customError)
 
             }
-        }catch(exception: Exception){
-            CustomError.ErrorServer().errorMessage = exception.message!!
-            Either.Left(CustomError.ErrorServer())
+        } catch (exception: Exception) {
+
+            val customError = CustomError.ErrorServer()
+
+            customError.errorMessage = exception.message!!
+
+            Either.Left(customError)
         }
 
     }

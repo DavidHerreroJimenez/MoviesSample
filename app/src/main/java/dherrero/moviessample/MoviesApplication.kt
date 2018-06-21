@@ -11,7 +11,7 @@ import dherrero.moviessample.di.DaggerApplicationComponent
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesApplication: Application(){
+class MoviesApplication : Application() {
 
     val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         DaggerApplicationComponent
@@ -27,7 +27,6 @@ class MoviesApplication: Application(){
 
 
     }
-
 
 
 }

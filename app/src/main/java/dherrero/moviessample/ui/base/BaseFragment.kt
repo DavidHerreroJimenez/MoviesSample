@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.di.ApplicationComponent
+import dherrero.moviessample.ui.presenter.MoviesPresenter
+import javax.inject.Inject
 
 /**
  * Project name: MoviesSample
@@ -14,7 +16,10 @@ import dherrero.moviessample.di.ApplicationComponent
  *
  * Created by dherrero on 12/06/18.
  */
-abstract class BaseFragment: Fragment(){
+abstract class BaseFragment : Fragment() {
+
+    @Inject
+    lateinit var presenter: MoviesPresenter
 
 
     val applicationComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
@@ -26,8 +31,6 @@ abstract class BaseFragment: Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(addFragmentLayout(), container, false)
-
-
 
 
 }

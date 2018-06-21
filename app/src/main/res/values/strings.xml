@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MoviesSample</string>
+
+    <string name="btnAccept">Aceptar</string>
 </resources>
