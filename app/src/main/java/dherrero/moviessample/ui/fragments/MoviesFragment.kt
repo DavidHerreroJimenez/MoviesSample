@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.movies_fragment.*
 class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallBack {
 
 
-    lateinit var movies: MutableList<Movie>
+    var movies: MutableList<Movie> = mutableListOf()
 
     override fun addFragmentLayout(): Int {
         return movies_fragment
@@ -62,7 +62,9 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
 
     override fun onCallBackMoviesFragment(newMovies: MutableList<Movie>) {
 
-        this.movies = newMovies
+        movies.clear()
+
+        movies.addAll(newMovies)
 
         Toast.makeText(context, movies.size.toString(), Toast.LENGTH_LONG).show()
     }
