@@ -19,5 +19,6 @@
     <string name="video">Video:</string>
     <string name="voteAverage">Vote Average:</string>
     <string name="voteCount">Recuento de votos:</string>
+    <string name="nodata">--</string>
 
 </resources>

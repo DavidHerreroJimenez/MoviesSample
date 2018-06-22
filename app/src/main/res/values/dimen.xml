@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_bottom_recyclerview_adapter">1dp</dimen>
+    <dimen name="margin_top_recyclerview_adapter">1dp</dimen>
+    <dimen name="padding_recyclerview_adapter">5dp</dimen>
+    <dimen name="elevation_recyclerview_adapter">1dp</dimen>
+    <dimen name="padding_left_text_recyclerview_adapter">5dp</dimen>
+    <dimen name="padding_image_recyclerview_adapter">5dp</dimen>
+
+
+
+    <dimen name="largeText">18sp</dimen>
+    <dimen name="normalText">14sp</dimen>
+
+
+
+</resources>

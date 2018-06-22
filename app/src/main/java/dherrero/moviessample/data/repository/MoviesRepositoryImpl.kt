@@ -41,6 +41,8 @@ class MoviesRepositoryImpl @Inject constructor(private val theMoviedbApi: TheMov
 
             customError.errorMessage = exception.message!!
 
+            customError.urlError = "nourl"
+
             Either.Left(customError)
         }
 

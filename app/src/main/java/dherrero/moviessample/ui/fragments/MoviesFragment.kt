@@ -55,8 +55,6 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-//        buttonPulsame.setOnClickListener(this)
-
         presenter.loadMovies()
 
 

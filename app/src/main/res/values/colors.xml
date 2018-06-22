@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ccff90</color>
+    <color name="colorPrimaryDark">#99cc60</color>
+    <color name="colorPrimaryLight">#ffffc2</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorSecondary">#ffff8d</color>
+    <color name="colorSecondaryDark">#cacc5d</color>
+    <color name="colorSecondaryLight">#ffffbf</color>
+    <color name="colorTextPrimary">#000000</color>
+
+
+    <color name="background_recyclerview">#FAFAFA</color>
+    <color name="background_adapter">#FFFFFF</color>
+
+
+
+
+
 </resources>

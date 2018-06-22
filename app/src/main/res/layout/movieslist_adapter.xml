@@ -1,238 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<LinearLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_marginBottom="@dimen/margin_bottom_recyclerview_adapter"
+    android:layout_marginTop="@dimen/margin_top_recyclerview_adapter"
+    android:padding="@dimen/padding_recyclerview_adapter"
+    android:elevation="@dimen/elevation_recyclerview_adapter"
+    android:weightSum="10"
+    android:background="@color/background_adapter">
 
-    <TextView
-        android:id="@+id/originalTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/originalTitle"
-        />
-    <TextView
-        android:id="@+id/originalTitleDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-</LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        />
-    <TextView
-        android:id="@+id/titleDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:padding="@dimen/padding_image_recyclerview_adapter">
+
+            <ImageView
+                android:id="@+id/backDropImageDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/adult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/adult"
-        />
-    <TextView
-        android:id="@+id/adultDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
+        android:orientation="vertical"
+        android:layout_weight="7"
+        android:paddingLeft="@dimen/padding_left_text_recyclerview_adapter">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <TextView
-        android:id="@+id/backDropImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/backDropImage"
-        />
-
-        <ImageView
-            android:id="@+id/backDropImageDescription"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RatingBar
+                android:id="@+id/voteAverageDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:numStars="5"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/mediaType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/mediaType"
-        />
-    <TextView
-        android:id="@+id/mediaTypeDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/language"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/language"
-        />
-    <TextView
-        android:id="@+id/languageDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end"
+                android:gravity="end">
+                <ImageView
+                    android:id="@+id/voteCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/baseline_favorite_black_18"
+                    />
+                <TextView
+                    android:id="@+id/voteCountDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nodata"
+                    android:layout_gravity="top"
+                    android:gravity="top"
+                    style="@style/TextNormalRecyclerViewAdapter"
+                    />
+            </LinearLayout>
+        </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/overview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/overview"
-        />
-    <TextView
-        android:id="@+id/overviewDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                style="@style/TextLargeRecyclerViewAdapter"
+                />
+            <TextView
+                android:id="@+id/titleDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nodata"
+                style="@style/TextLargeRecyclerViewAdapter"
+                />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/popularity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/popularity"
-        />
-    <TextView
-        android:id="@+id/popularityDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <TextView
-        android:id="@+id/posterImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/posterImage"
-        />
-
-        <ImageView
-            android:id="@+id/posterImageDescription"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/popularity"
+                style="@style/TextLargeRecyclerViewAdapter"
+                />
+            <TextView
+                android:id="@+id/popularityDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nodata"
+                style="@style/TextLargeRecyclerViewAdapter"
+                />
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/releaseDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/releaseDate"
-        />
-    <TextView
-        android:id="@+id/releaseDateDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/video"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/video"
-        />
-    <TextView
-        android:id="@+id/videoDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/voteAverage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/voteAverage"
-        />
-    <TextView
-        android:id="@+id/voteAverageDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/voteCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/voteCount"
-        />
-    <TextView
-        android:id="@+id/voteCountDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </LinearLayout>
