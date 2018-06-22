@@ -49,14 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="end"
-                android:gravity="end">
+                android:layout_gravity="end|center_vertical"
+                android:gravity="end|center_vertical">
                 <ImageView
                     android:id="@+id/voteCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tint="@color/colorPrimary"
-                    android:layout_gravity="center_vertical"
+                    android:tint="@color/colorPrimaryDark"
                     android:src="@drawable/baseline_favorite_black_18"
                     />
                 <TextView
@@ -64,8 +63,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nodata"
-                    android:layout_gravity="top"
-                    android:gravity="top"
                     style="@style/TextNormalRecyclerViewAdapter"
                     />
             </LinearLayout>
@@ -76,17 +73,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title"
-                style="@style/TextLargeRecyclerViewAdapter"
-                />
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/padding_title_recyclerview_adapter">
+
             <TextView
                 android:id="@+id/titleDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nodata"
                 style="@style/TextLargeRecyclerViewAdapter"

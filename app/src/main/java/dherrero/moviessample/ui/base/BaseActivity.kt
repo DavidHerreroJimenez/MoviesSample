@@ -38,4 +38,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
+    fun replacefragmentToFragment(newFragment: BaseFragment){
+
+        supportFragmentManager.beginTransaction().replace(baseactivity_container.id, newFragment).commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        supportFragmentManager.popBackStack()
+    }
+
+
 }

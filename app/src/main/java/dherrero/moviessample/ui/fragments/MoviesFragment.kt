@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.Adapter
+import android.widget.AdapterView
 import android.widget.Toast
 import dherrero.moviessample.R.layout.movies_fragment
 import dherrero.moviessample.domain.model.Movie
@@ -18,13 +18,14 @@ import kotlinx.android.synthetic.main.movies_fragment.*
  *
  * Created by dherrero on 12/06/18.
  */
-class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallBack {
+class MoviesFragment : BaseFragment(), MoviesFragmentCallBack {
 
 
-    var movies: MutableList<Movie> = mutableListOf()
+    private var movies: MutableList<Movie> = mutableListOf()
 
     private lateinit var moviesList: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
+
 
 
     override fun addFragmentLayout(): Int {
@@ -53,22 +54,11 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
     }
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onResume() {
+        super.onResume()
 
         presenter.loadMovies()
-
-
-
     }
-
-
-    override fun onClick(p0: View?) {
-
-        presenter.loadMovies()
-
-
-    }
-
 
     override fun onCallBackMoviesFragment(newMovies: MutableList<Movie>) {
 
@@ -76,16 +66,20 @@ class MoviesFragment : BaseFragment(), View.OnClickListener, MoviesFragmentCallB
 
         movies.addAll(newMovies)
 
-        viewAdapter = MoviesListAdapter(movies.toTypedArray())
+        viewAdapter = MoviesListAdapter(movies.toTypedArray()){
+
+            Toast.makeText(context, "${it.title}", Toast.LENGTH_SHORT).show()
+
+            presenter.getMovieDetail(it)
+        }
 
         moviesList = moviesListRecyclerView as RecyclerView
         moviesList.setHasFixedSize(true)
         moviesList.layoutManager = LinearLayoutManager(context)
         moviesList.adapter = viewAdapter
 
-//        viewAdapter.notifyDataSetChanged()
-
-        Toast.makeText(context, movies.size.toString(), Toast.LENGTH_LONG).show()
     }
 
 }
+
+

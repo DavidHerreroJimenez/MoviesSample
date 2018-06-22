@@ -7,6 +7,34 @@
     android:padding="@dimen/padding_recyclerview_adapter"
     android:elevation="@dimen/elevation_recyclerview_adapter">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backDropImageDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop" />
+
+
+        <TextView
+            android:id="@+id/titleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dip"
+            android:layout_centerInParent="true"
+            android:background="#AA000000"
+            android:padding="12dip"
+            android:text="@string/nodata"
+            android:textColor="#ffffffff" />
+
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,24 +60,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title"
-            />
-        <TextView
-            android:id="@+id/titleDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
             android:id="@+id/adult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,23 +73,7 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/backDropImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/backDropImage"
-            />
 
-        <ImageView
-            android:id="@+id/backDropImageDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
 
 
     <LinearLayout
@@ -161,18 +155,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/posterImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/posterImage"
-            />
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:gravity="end">
 
         <ImageView
             android:id="@+id/posterImageDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end" />
     </LinearLayout>
 
 

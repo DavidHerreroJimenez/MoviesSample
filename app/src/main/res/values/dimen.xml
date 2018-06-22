@@ -7,6 +7,7 @@
     <dimen name="elevation_recyclerview_adapter">1dp</dimen>
     <dimen name="padding_left_text_recyclerview_adapter">5dp</dimen>
     <dimen name="padding_image_recyclerview_adapter">5dp</dimen>
+    <dimen name="padding_title_recyclerview_adapter">2dp</dimen>
 
 
 

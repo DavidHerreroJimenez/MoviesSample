@@ -11,7 +11,7 @@
 
     <style name="TextLargeRecyclerViewAdapter" parent="AppTheme">
         <item name="android:textSize">@dimen/largeText</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
 
