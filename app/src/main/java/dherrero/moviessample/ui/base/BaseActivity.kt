@@ -1,6 +1,7 @@
 package dherrero.moviessample.ui.base
 
 import android.os.Bundle
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import dherrero.moviessample.MoviesApplication
 import dherrero.moviessample.R.layout.baseactivity_layout
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.baseactivity_layout.*
 import kotlinx.android.synthetic.main.basetoolbar.*
 import javax.inject.Inject
 import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
+import android.view.View.SYSTEM_UI_FLAG_VISIBLE
 import android.widget.Toast
 import dherrero.moviessample.ui.fragments.MovieDetail
 import dherrero.moviessample.ui.fragments.MoviesFragment
@@ -29,6 +31,10 @@ abstract class BaseActivity : AppCompatActivity() {
     private var savedInstanceState: Bundle? = Bundle()
 
 
+    lateinit var myFragmentManager: FragmentManager
+
+
+
     val applicationComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
 
         (application as MoviesApplication).appComponent
@@ -46,37 +52,32 @@ abstract class BaseActivity : AppCompatActivity() {
 
         this.savedInstanceState != savedInstanceState
 
-        supportFragmentManager.beginTransaction().add(baseactivity_container.id, addFragment(), addFragment().javaClass.name).commit()
+        myFragmentManager = supportFragmentManager
+
+        myFragmentManager.beginTransaction()
+                .add(baseactivity_container.id, addFragment(), addFragment().javaClass.name)
+                .addToBackStack(addFragment().javaClass.name)
+                .commit()
+
+
+        myFragmentManager.fragments
     }
 
 
     fun replacefragmentToFragment(newFragment: BaseFragment){
 
-        supportFragmentManager.beginTransaction().replace(baseactivity_container.id, newFragment, newFragment.javaClass.name).commit()
+        myFragmentManager.beginTransaction()
+                .replace(baseactivity_container.id, newFragment, newFragment.javaClass.name)
+                .addToBackStack(newFragment.javaClass.name)
+                .commit()
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
 
+        showStatusBar()
 
-
-            if (supportFragmentManager.findFragmentByTag(MoviesFragment().javaClass.name) != null
-                    && supportFragmentManager.findFragmentByTag(MoviesFragment().javaClass.name).isVisible) {
-
-                Toast.makeText(applicationContext, "Se cerrará la aplicación", Toast.LENGTH_SHORT).show()
-
-            }
-            if (supportFragmentManager.findFragmentByTag(MovieDetail().javaClass.name) != null
-                    && supportFragmentManager.findFragmentByTag(MovieDetail().javaClass.name).isVisible) {
-
-
-//                supportFragmentManager.popBackStack(MoviesFragment().id, MoviesFragment().id)
-            }
-
-
-
-
-
+        if (myFragmentManager.fragments.isEmpty()) finish()
 
     }
 
@@ -85,6 +86,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
         val decorView = window.decorView
         decorView.systemUiVisibility = SYSTEM_UI_FLAG_FULLSCREEN
+    }
+
+    fun showStatusBar(){
+
+        val decorView = window.decorView
+        decorView.systemUiVisibility = SYSTEM_UI_FLAG_VISIBLE
     }
 
 
