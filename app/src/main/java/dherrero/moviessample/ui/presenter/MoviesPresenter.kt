@@ -24,6 +24,7 @@ class MoviesPresenter @Inject constructor(val useCase: MoviesUseCase<ThemoviedbL
     lateinit var themoviedbList1: ThemoviedbList1
     var results: List<Result> = arrayListOf()
     var movies: MutableList<Movie> = mutableListOf()
+    lateinit var movie: Movie
 
 
     fun loadMovies() {
@@ -80,10 +81,26 @@ class MoviesPresenter @Inject constructor(val useCase: MoviesUseCase<ThemoviedbL
 
     fun getMovieDetail(movie: Movie){
 
+        this.movie = movie
+
         viewActivity.getDetailFragment()
 
-//        viewFragmentDetail.onCallBackMovieDetail(movie)
+    }
+
+    fun getDetails(): Movie = movie
+
+
+    fun getFullSizePoster(){
+
+
+        viewActivity.hideStatusBar()
+
+        viewActivity.getFullPosterFragment()
+
+
 
     }
+
+
 
 }

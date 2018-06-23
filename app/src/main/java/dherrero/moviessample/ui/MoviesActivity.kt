@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog
 import dherrero.moviessample.R
 import dherrero.moviessample.ui.base.BaseActivity
 import dherrero.moviessample.ui.base.BaseFragment
+import dherrero.moviessample.ui.fragments.FullPosterFragment
 import dherrero.moviessample.ui.fragments.MovieDetail
 import dherrero.moviessample.ui.fragments.MoviesFragment
 import dherrero.moviessample.ui.view.MoviesCallBack
@@ -18,7 +19,6 @@ import dherrero.moviessample.ui.view.MoviesCallBack
 class MoviesActivity : BaseActivity(), MoviesCallBack {
 
     override fun addFragment(): BaseFragment = MoviesFragment().newInstance()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +43,16 @@ class MoviesActivity : BaseActivity(), MoviesCallBack {
 
 
     override fun getDetailFragment() {
-        super.getDetailFragment()
 
         super.replacefragmentToFragment(MovieDetail().newInstance())
 
+
+    }
+
+
+    override fun getFullPosterFragment() {
+
+        super.replacefragmentToFragment(FullPosterFragment().newInstance())
 
     }
 }

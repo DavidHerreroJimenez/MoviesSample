@@ -6,5 +6,10 @@ interface MoviesCallBack: BaseCallBack {
 
     fun onCallBackError(title: String, msg: String){}
 
-    fun getDetailFragment(){}
+    fun getDetailFragment()
+
+    fun getFullPosterFragment()
+
+
+    fun hideStatusBar()
 }

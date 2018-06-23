@@ -1,11 +1,18 @@
 package dherrero.moviessample.ui.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.squareup.picasso.Picasso
 import dherrero.moviessample.R.layout.movie_detail
+import dherrero.moviessample.data.base.Constants
 import dherrero.moviessample.domain.model.Movie
 import dherrero.moviessample.ui.base.BaseFragment
+import dherrero.moviessample.ui.base.CropCircleTransformation
 import dherrero.moviessample.ui.view.MovieDetailCallBack
 import kotlinx.android.synthetic.main.movie_detail.*
+import kotlinx.android.synthetic.main.movieslist_adapter.view.*
 
 /**
  * Project name: MoviesSample
@@ -39,10 +46,19 @@ class MovieDetail: BaseFragment(), MovieDetailCallBack {
         presenter.viewFragmentDetail = this
     }
 
-    override fun onCallBackMovieDetail(movie: Movie) {
-        super.onCallBackMovieDetail(movie)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-//        backDropImageDescription
+        posterImageDescription.setOnClickListener{presenter.getFullSizePoster()}
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+
+        val movie = presenter.getDetails()
+
+
         titleDescription.text = movie.title
         originalTitleDescription.text = movie.originalTitle
         adultDescription.text = movie.adult.toString()
@@ -51,21 +67,25 @@ class MovieDetail: BaseFragment(), MovieDetailCallBack {
         overviewDescription.text = movie.overview
         popularityDescription.text = movie.popularity.toString()
 
-//        posterImageDescription
 
         releaseDateDescription.text = movie.releaseDate
         videoDescription.text = movie.video.toString()
 
-        voteAverageDescription.text = movie.voteAverage.toString()
+        voteAverageDescription.rating = (movie.voteAverage.toFloat() /2)
         voteCountDescription.text = movie.voteCount.toString()
 
 
+        Picasso.get()
+                .load(Constants.BASE_URL_BACKDROP + movie.backDropImage)
+                .into(backDropImageDescription)
 
-
-
-
+        Picasso.get()
+                .load(Constants.BASE_URL_BACKDROP + movie.posterImage)
+                .into(posterImageDescription)
 
 
 
     }
+
+
 }

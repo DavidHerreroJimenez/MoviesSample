@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_bottom_recyclerview_adapter"
-    android:layout_marginTop="@dimen/margin_top_recyclerview_adapter"
-    android:padding="@dimen/padding_recyclerview_adapter"
-    android:elevation="@dimen/elevation_recyclerview_adapter">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <ImageView
             android:id="@+id/backDropImageDescription"
@@ -22,96 +20,244 @@
 
         <TextView
             android:id="@+id/titleDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dip"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
             android:layout_centerInParent="true"
-            android:background="#AA000000"
-            android:padding="12dip"
+            android:padding="@dimen/padding_title_detail"
             android:text="@string/nodata"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/largeText"/>
 
 
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/padding_top_movie_detail"
+        android:paddingBottom="@dimen/padding_bottom_movie_detail"
+        android:paddingLeft="@dimen/padding_left_movie_detail"
+        android:paddingRight="@dimen/padding_right_movie_detail"
+        android:orientation="vertical"
+        >
 
-        <TextView
-            android:id="@+id/originalTitle"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/originalTitle"
-            />
-        <TextView
-            android:id="@+id/originalTitleDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
+            android:orientation="horizontal"
+            >
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/adult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/adult"
-            />
-        <TextView
-            android:id="@+id/adultDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/posterImageDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="start"/>
 
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/padding_left_movie_detail">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/mediaType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mediaType"
-            />
-        <TextView
-            android:id="@+id/mediaTypeDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/voteAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/voteAverage"
+                        style="@style/TextNormalBold"
+                        />
+
+                    <RatingBar
+                        android:id="@+id/voteAverageDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:numStars="5"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                        />
+                </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/language"
-            />
-        <TextView
-            android:id="@+id/languageDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/originalTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/originalTitle"
+                    style="@style/TextNormalBold"
+                    />
+                <TextView
+                    android:id="@+id/originalTitleDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nodata"
+                    style="@style/TextNormal"
+                    />
+
+            </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/releaseDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/releaseDate"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/releaseDateDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/languageDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/adult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adult"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/adultDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/mediaType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mediaType"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/mediaTypeDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/popularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/popularity"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/popularityDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/video"
+                        style="@style/TextNormalBold"
+                        />
+                    <TextView
+                        android:id="@+id/videoDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/voteCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/baseline_favorite_black_18"
+                        />
+                    <TextView
+                        android:id="@+id/voteCountDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nodata"
+                        style="@style/TextNormal"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     <LinearLayout
@@ -123,122 +269,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/overview"
+            style="@style/TextNormalBold"
             />
         <TextView
             android:id="@+id/overviewDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nodata"
+            style="@style/TextNormal"
             />
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/popularity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/popularity"
-            />
-        <TextView
-            android:id="@+id/popularityDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="end"
-        android:gravity="end">
-
-        <ImageView
-            android:id="@+id/posterImageDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/releaseDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/releaseDate"
-            />
-        <TextView
-            android:id="@+id/releaseDateDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/video"
-            />
-        <TextView
-            android:id="@+id/videoDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/voteAverage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/voteAverage"
-            />
-        <TextView
-            android:id="@+id/voteAverageDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/voteCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/voteCount"
-            />
-        <TextView
-            android:id="@+id/voteCountDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nodata"
-            />
     </LinearLayout>
 
 </LinearLayout>

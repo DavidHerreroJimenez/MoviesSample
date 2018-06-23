@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.movies_fragment.*
 class MoviesFragment : BaseFragment(), MoviesFragmentCallBack {
 
 
+
+
     private var movies: MutableList<Movie> = mutableListOf()
 
     private lateinit var moviesList: RecyclerView
