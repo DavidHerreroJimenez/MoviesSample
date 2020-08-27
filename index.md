@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+# MoviesSample
 
-You can use the [editor on GitHub](https://github.com/DavidHerreroJimenez/MoviesSample/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+MoviesSample is a test app to list popular films from [themoviedb](https://www.themoviedb.org/).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+_It has developed with Kotlin. Based on SOLID principles and Clean Architecture._
 
-### Markdown
+## Screenshots:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<img src="images_ghpages/dbm0.png" alt="drawing" width="200"/>  <img src="images_ghpages/dbm1.png" alt="drawing" width="200"/>
+<img src="images_ghpages/dbm2.png" alt="drawing" width="200"/>  <img src="images_ghpages/dbm3.png" alt="drawing" width="200"/>
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+_This project was inspired in [Android-CleanArchitecture-Kotlin](https://github.com/android10/Android-CleanArchitecture-Kotlin) by [Fernando Cejas](https://fernandocejas.com/)_
 
-1. Numbered
-2. List
+<img src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" alt="themoviedb" width="50" height="50">
+**Este producto utiliza la API TMDb pero TMDb no lo respalda ni certifica**
 
-**Bold** and _Italic_ and `Code` text
+[themoviedb.org terms of use](https://www.themoviedb.org/terms-of-use)
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DavidHerreroJimenez/MoviesSample/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
