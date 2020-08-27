@@ -1,5 +1,6 @@
 package dherrero.moviessample.data.repository
 
+import dherrero.moviessample.data.base.Credencials.Companion.CREDENCIAL_THEMOVIEDB_API_V3
 import dherrero.moviessample.data.errors.CustomError
 import dherrero.moviessample.data.errors.Either
 import dherrero.moviessample.data.rest.TheMoviedbApi
@@ -22,7 +23,7 @@ class MoviesRepositoryImpl @Inject constructor(private val theMoviedbApi: TheMov
 
 
         return try {
-            val moviesResponse = theMoviedbApi.listMovies().execute()
+            val moviesResponse = theMoviedbApi.listMovies(CREDENCIAL_THEMOVIEDB_API_V3).execute()
 
             val customError = CustomError.ErrorServer()
 

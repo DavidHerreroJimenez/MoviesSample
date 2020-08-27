@@ -18,7 +18,7 @@ class TheMoviedbApi @Inject constructor(retrofit: Retrofit):ThemoviedbService{
     private val movies by lazy { retrofit.create(ThemoviedbService::class.java) }
 
 
-    override fun listMovies(): Call<ThemoviedbList1> {
-        return movies.listMovies()
+    override fun listMovies(credential: String): Call<ThemoviedbList1> {
+        return movies.listMovies(credential)
     }
 }

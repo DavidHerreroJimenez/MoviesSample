@@ -5,7 +5,7 @@ class Credencials{
     companion object {
 
         //you can read the instructions to get the api key from https://developers.themoviedb.org/3/getting-started/introduction
-        const val CREDENCIAL_THEMOVIEDB_API_V3 = "introduce here your api key"
+        const val CREDENCIAL_THEMOVIEDB_API_V3 = "your_own_api_key"
 
 
     }
