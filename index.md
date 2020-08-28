@@ -6,15 +6,17 @@ _It has developed with Kotlin. Based on SOLID principles and Clean Architecture.
 
 ## Screenshots:
 
-<img src="images_ghpages/dbm0.png" alt="drawing" width="200"/>  <img src="images_ghpages/dbm1.png" alt="drawing" width="200"/>
-<img src="images_ghpages/dbm2.png" alt="drawing" width="200"/>  <img src="images_ghpages/dbm3.png" alt="drawing" width="200"/>
+<img src="images_ghpages/dbm0.png" alt="drawing" width="200"/>  
+<img src="images_ghpages/dbm1.png" alt="drawing" width="200"/>
+<img src="images_ghpages/dbm2.png" alt="drawing" width="200"/>  
+<img src="images_ghpages/dbm3.png" alt="drawing" width="200"/>
 
 
 
-_This project was inspired in [Android-CleanArchitecture-Kotlin](https://github.com/android10/Android-CleanArchitecture-Kotlin) by [Fernando Cejas](https://fernandocejas.com/)_
+_This project was inspired by [Android-CleanArchitecture-Kotlin](https://github.com/android10/Android-CleanArchitecture-Kotlin) by [Fernando Cejas](https://fernandocejas.com/)_
 
 <img src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg" alt="themoviedb" width="50" height="50">
-**Este producto utiliza la API TMDb pero TMDb no lo respalda ni certifica**
+**This product uses the TMDb API but is not endorsed or certified by TMDb**
 
 [themoviedb.org terms of use](https://www.themoviedb.org/terms-of-use)
 
