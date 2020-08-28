@@ -6,10 +6,10 @@ _It has developed with Kotlin. Based on SOLID principles and Clean Architecture.
 
 ## Screenshots:
 
-<img src="images_ghpages/dbm0.png" alt="drawing" width="200"/>  
-<img src="images_ghpages/dbm1.png" alt="drawing" width="200"/>
-<img src="images_ghpages/dbm2.png" alt="drawing" width="200"/>  
-<img src="images_ghpages/dbm3.png" alt="drawing" width="200"/>
+<img src="images_ghpages/dbm0.png" alt="drawing" width="200"/>   <img src="images_ghpages/dbm1.png" alt="drawing" width="200"/>
+
+<img src="images_ghpages/dbm2.png" alt="drawing" width="200"/>  <img src="images_ghpages/dbm3.png" alt="drawing" width="200"/>
+
 
 
 
